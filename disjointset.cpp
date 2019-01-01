@@ -25,13 +25,13 @@ void DisjointSet::unionSets(int x, int y) {
 
     int xp = findParent(x);
     int yp = findParent(y);
-
+    
     if (rank[xp] > rank[yp]) {
-        parent[y] = x;
+        parent[yp] = xp;
     } else if (rank[yp] > rank[xp]) {
-        parent[x] = y;
+        parent[xp] = yp;
     } else {
-        parent[y] = x;
-        rank[x]++;
+        parent[yp] = xp;
+        rank[xp]++;
     }
 }
