@@ -21,6 +21,7 @@ int DisjointSet::findParent(int x) {
     return x;
 }
 
+// Union by Rank
 void DisjointSet::unionSets(int x, int y) {
 
     int xp = findParent(x);
@@ -35,3 +36,24 @@ void DisjointSet::unionSets(int x, int y) {
         rank[xp]++;
     }
 }
+
+
+/*
+// Union by Size
+void DisjointSet::unionSets(int x, int y) {
+        
+        int xp = find(x);
+        int yp = find(y);
+        
+        if (xp == yp)
+            return;
+        
+        if (setSize[xp] > setSize[yp]) {
+            parent[yp] = xp;
+            setSize[xp] += setSize[yp];
+        } else {
+            parent[xp] = yp;
+            setSize[yp] += setSize[xp];
+        }
+    }
+*/
