@@ -1,6 +1,4 @@
 #include "trie.h"
-#include <string>
-
 
 Trie::~Trie () {
     deleteTrie(root);
@@ -22,11 +20,9 @@ void Trie::insert(std::string word) {
 
     for (auto ch : word) {
         int i = ch - 'a';
-
         if (!node->children[i]) {
             node->children[i] = new Node();
         }
-
         node = node->children[i];
     }
 
@@ -38,11 +34,9 @@ bool Trie::search(std::string word) {
 
     for (auto ch : word) {
         int i = ch - 'a';
-
         if (!node->children[i]) {
             return false;
         }
-
         node = node->children[i];
     }
 
@@ -54,11 +48,9 @@ bool Trie::isPrefix(std::string word) {
 
     for (auto ch : word) {
         int i = ch - 'a';
-
         if (!node->children[i]) {
             return false;
         }
-
         node = node->children[i];
     }
 

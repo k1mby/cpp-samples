@@ -1,6 +1,5 @@
 #include "disjointset.h"
 
-
 void DisjointSet::makeSet(int x) {
     parent[x] = x;
     rank[x] = 0;
@@ -36,24 +35,3 @@ void DisjointSet::unionSets(int x, int y) {
         rank[xp]++;
     }
 }
-
-
-/*
-// Union by Size
-void DisjointSet::unionSets(int x, int y) {
-        
-        int xp = find(x);
-        int yp = find(y);
-        
-        if (xp == yp)
-            return;
-        
-        if (setSize[xp] > setSize[yp]) {
-            parent[yp] = xp;
-            setSize[xp] += setSize[yp];
-        } else {
-            parent[xp] = yp;
-            setSize[yp] += setSize[xp];
-        }
-    }
-*/
