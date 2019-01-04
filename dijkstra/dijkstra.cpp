@@ -6,7 +6,6 @@ void Dijkstra::addEdge(int v1, int v2, int weight) {
     distance[v2] = INT_MAX;
 }
 
-
 vector<int> Dijkstra::shortestPath(int src, int dst) {
 
     vector<int> path;
@@ -29,7 +28,7 @@ vector<int> Dijkstra::shortestPath(int src, int dst) {
 
         // No path between src and dst
         if (distance[current.label] == INT_MAX) {
-            return {};
+            break;
         }
 
         // Update weights
@@ -46,14 +45,12 @@ vector<int> Dijkstra::shortestPath(int src, int dst) {
     return path;
 }
 
-
 void Dijkstra::buildPath(vector<int>& path, int node) {
     while (previous.count(node)) {
         path.push_back(previous[node]);
         node = previous[node];
     }
 }
-
 
 void Dijkstra::printPath(vector<int> path) {
 
